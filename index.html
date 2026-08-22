@@ -433,6 +433,39 @@
 
     .nav-links a:hover { color: var(--accent); }
 
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 0.35rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--sans);
+      color: var(--ink-muted);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { color: var(--accent); }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+    .lang-btn + .lang-btn { border-left: 1px solid var(--border); }
+    @media (max-width: 768px) {
+      .lang-switcher { margin-left: 0; }
+    }
+
     /* HERO */
     #inicio {
       max-width: 1100px;
@@ -1099,11 +1132,16 @@
   <div class="nav-inner">
     <a href="#inicio" class="nav-logo">Marcel Muñoz Rodríguez</a>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#publicaciones">Publicaciones</a></li>
+      <li><a href="#sobre" data-i18n="nav_about">Sobre mí</a></li>
+      <li><a href="#publicaciones" data-i18n="nav_pub">Publicaciones</a></li>
       <li><a href="#cv">CV</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('ca')">CA</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -1111,27 +1149,27 @@
 <div id="inicio">
   <div class="hero-top">
     <h1>Marcel Muñoz Rodríguez</h1>
-    <p class="subtitle">Politólogo especializado en asuntos europeos e internacionales</p>
+    <p class="subtitle" data-i18n="hero_subtitle">Politólogo especializado en asuntos europeos e internacionales</p>
   </div>
   <div class="hero-bottom">
   <div class="hero-text">
     <div class="hero-affiliations">
       <div class="affil-item">
         <span class="affil-dot"></span>
-        Coordinador del Laboratorio de Políticas Públicas · Fundación Alternativas
+        <span data-i18n="hero_affil1">Coordinador del Laboratorio de Políticas Públicas · Fundación Alternativas</span>
       </div>
       <div class="affil-item">
         <span class="affil-dot"></span>
-        Analista internacional
+        <span data-i18n="hero_affil2">Analista internacional</span>
       </div>
     </div>
     <div class="hero-cta">
       <a href="#publicaciones" class="btn-primary">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Publicaciones
+        <span data-i18n="nav_pub">Publicaciones</span>
       </a>
       <a href="#contacto" class="btn-secondary">
-        Contacto
+        <span data-i18n="nav_contact">Contacto</span>
       </a>
     </div>
   </div>
@@ -1148,14 +1186,14 @@
 <!-- SOBRE MÍ -->
 <div id="sobre">
   <div class="inner">
-    <p class="section-label">Trayectoria</p>
-    <h2 class="section-title">Sobre mí</h2>
+    <p class="section-label" data-i18n="about_label">Trayectoria</p>
+    <h2 class="section-title" data-i18n="about_title">Sobre mí</h2>
     <div class="sobre-grid">
       <div class="sobre-text">
-        <p>Graduado en Historia, Política y Economía Contemporáneas por la Universitat Autònoma de Barcelona y Máster Universitario en Unión Europea por la UNED.</p>
-        <p>Actualmente ocupo el puesto de <strong>Coordinador del Laboratorio de Políticas Públicas de la Fundación Alternativas</strong>, donde coordino, planifico y superviso la elaboración de informes y <em>policy papers</em> sobre diversos temas de interés público, así como su presentación y difusión ante audiencias académicas, institucionales y sociales. Además, participo en proyectos europeos junto a otros <em>think tanks</em> internacionales.</p>
-        <p>Publico análisis y artículos de opinión sobre asuntos europeos e internacionales en medios especializados como <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.</p>
-        <p>Mis intereses académicos se centran en la <strong>autonomía estratégica de la UE</strong> y las <strong>dependencias críticas</strong> europeas: energía, semiconductores y materias primas, y su impacto sobre la capacidad de acción exterior de la Unión en un orden internacional cada vez más competitivo.</p>
+        <p data-i18n="about_p1">Graduado en Historia, Política y Economía Contemporáneas por la Universitat Autònoma de Barcelona y Máster Universitario en Unión Europea por la UNED.</p>
+        <p data-i18n-html="about_p2">Actualmente ocupo el puesto de <strong>Coordinador del Laboratorio de Políticas Públicas de la Fundación Alternativas</strong>, donde coordino, planifico y superviso la elaboración de informes y <em>policy papers</em> sobre diversos temas de interés público, así como su presentación y difusión ante audiencias académicas, institucionales y sociales. Además, participo en proyectos europeos junto a otros <em>think tanks</em> internacionales.</p>
+        <p data-i18n-html="about_p3">Publico análisis y artículos de opinión sobre asuntos europeos e internacionales en medios especializados como <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.</p>
+        <p data-i18n-html="about_p4">Mis intereses académicos se centran en la <strong>autonomía estratégica de la UE</strong> y las <strong>dependencias críticas</strong> europeas: energía, semiconductores y materias primas, y su impacto sobre la capacidad de acción exterior de la Unión en un orden internacional cada vez más competitivo.</p>
       </div></div>
     </div>
   </div>
@@ -1165,12 +1203,12 @@
 
 <!-- PUBLICACIONES -->
 <section id="publicaciones">
-  <p class="section-label">Investigación y análisis</p>
-  <h2 class="section-title">Publicaciones</h2>
+  <p class="section-label" data-i18n="pub_label">Investigación y análisis</p>
+  <h2 class="section-title" data-i18n="pub_title">Publicaciones</h2>
 
   <div class="pub-tabs">
-    <button class="pub-tab active" onclick="showTab('opinion')">Artículos</button>
-    <button class="pub-tab" onclick="showTab('editorial')">Coordinación editorial</button>
+    <button class="pub-tab active" onclick="showTab('opinion')" data-i18n="pub_tab_articles">Artículos</button>
+    <button class="pub-tab" onclick="showTab('editorial')" data-i18n="pub_tab_editorial">Coordinación editorial</button>
   </div>
 
   <!-- OPINIÓN -->
@@ -1180,10 +1218,9 @@
         <div>
           <p class="pub-source">VIU Molins de Rei</p>
           <p class="pub-title">El centre de dades: una gran oportunitat plena de reptes</p>
-          <p class="pub-desc">L'arribada d'un centre de dades a Molins de Rei s'inscriu en l'aposta europea per la sobirania digital, però planteja reptes concrets d'impacte ambiental, consum energètic i garanties de transparència que cal abordar des del territori.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_1">L'arribada d'un centre de dades a Molins de Rei s'inscriu en l'aposta europea per la sobirania digital, però planteja reptes concrets d'impacte ambiental, consum energètic i garanties de transparència que cal abordar des del territori.</p>
           <a href="https://viumolinsderei.com/2026/08/21/el-centre-de-dades-una-gran-oportunitat-plena-de-reptes/" target="_blank" rel="noopener" class="pub-link">
-            Llegir article
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Llegir article</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Ago. 2026</span>
@@ -1192,10 +1229,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">Una petrolera cercana a Trump desafía a Nuuk con un desembarco no autorizado</p>
-          <p class="pub-desc">La petrolera tejana Greenland Energy, vinculada al entorno de Trump, desembarca maquinaria de perforación en Groenlandia sin autorización de Nuuk. El episodio marca un cambio de método: de las amenazas diplomáticas a los hechos consumados sobre el terreno mediante actores privados.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_2">La petrolera tejana Greenland Energy, vinculada al entorno de Trump, desembarca maquinaria de perforación en Groenlandia sin autorización de Nuuk. El episodio marca un cambio de método: de las amenazas diplomáticas a los hechos consumados sobre el terreno mediante actores privados.</p>
           <a href="https://www.descifrandolaguerra.es/petrolera-trump-groenlandia-desembarco/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Ago. 2026</span>
@@ -1204,10 +1240,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">La diplomacia europea entre Kaja Kallas y Ursula von der Leyen</p>
-          <p class="pub-desc">La tensión entre la Alta Representante y la presidenta de la Comisión no es una pugna personal: refleja la ambigüedad estructural de la arquitectura diplomática de la UE, convertida en vulnerabilidad estratégica en un contexto que exige coherencia exterior.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_3">La tensión entre la Alta Representante y la presidenta de la Comisión no es una pugna personal: refleja la ambigüedad estructural de la arquitectura diplomática de la UE, convertida en vulnerabilidad estratégica en un contexto que exige coherencia exterior.</p>
           <a href="https://www.descifrandolaguerra.es/diplomacia-europea-kaja-kallas-ursula-von-der-leyen/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Ago. 2026</span>
@@ -1216,10 +1251,9 @@
         <div>
           <p class="pub-source">exterior.cat</p>
           <p class="pub-title">L'autonomia estratègica també passa pel Corredor Mediterrani</p>
-          <p class="pub-desc">El Corredor Mediterrani ha estat un debat d'infraestructures i territori. El nou context geopolític l'eleva a peça clau de l'autonomia estratègica europea: connectar cadenes de valor, reforçar la política industrial i reduir la vulnerabilitat del mercat interior davant les disrupcions globals.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_4">El Corredor Mediterrani ha estat un debat d'infraestructures i territori. El nou context geopolític l'eleva a peça clau de l'autonomia estratègica europea: connectar cadenes de valor, reforçar la política industrial i reduir la vulnerabilitat del mercat interior davant les disrupcions globals.</p>
           <a href="https://exterior.cat/opinio/lautonomia-estrategica-tambe-passa-pel-corredor-mediterrani/" target="_blank" rel="noopener" class="pub-link">
-            Llegir article
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Llegir article</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Jul. 2026</span>
@@ -1228,10 +1262,9 @@
         <div>
           <p class="pub-source">infoLibre</p>
           <p class="pub-title">Seguridad económica en tiempos de interdependencia</p>
-          <p class="pub-desc">En un contexto de rivalidad geopolítica e interdependencia económica, la UE debe integrar la seguridad en su política económica: diversificar socios fiables, reforzar su competitividad en cadenas de valor estratégicas y actuar a escala comunitaria para no confundir apertura con indefensión.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_5">En un contexto de rivalidad geopolítica e interdependencia económica, la UE debe integrar la seguridad en su política económica: diversificar socios fiables, reforzar su competitividad en cadenas de valor estratégicas y actuar a escala comunitaria para no confundir apertura con indefensión.</p>
           <a href="https://www.infolibre.es/opinion/plaza-publica/seguridad-economica-tiempos-interdependencia_129_2229160.html" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Jul. 2026</span>
@@ -1245,7 +1278,7 @@
         font-weight:500; font-family:var(--sans); cursor:pointer;
         display:inline-flex; align-items:center; gap:0.5rem;
         transition:background 0.2s;">
-        Ver más artículos
+        <span data-i18n="show_more">Ver más artículos</span>
         <svg id="btn-arrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform 0.3s;"><path d="M19 9l-7 7-7-7"/></svg>
       </button>
     </div>
@@ -1256,10 +1289,9 @@
         <div>
           <p class="pub-source">Diplomacy News</p>
           <p class="pub-title">Estados Unidos contra su propia promesa</p>
-          <p class="pub-desc">Doscientos cincuenta años después de la Declaración de Independencia, la principal amenaza para el proyecto fundacional estadounidense procede de su propia presidencia: concentración de poder, erosión de contrapesos y renuncia explícita a los principios que definieron la república.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_6">Doscientos cincuenta años después de la Declaración de Independencia, la principal amenaza para el proyecto fundacional estadounidense procede de su propia presidencia: concentración de poder, erosión de contrapesos y renuncia explícita a los principios que definieron la república.</p>
           <a href="https://www.diplomacynews.com/2026/07/05/estados-unidos-contra-su-propia-promesa/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Jul. 2026</span>
@@ -1268,10 +1300,9 @@
         <div>
           <p class="pub-source">exterior.cat</p>
           <p class="pub-title">Una indústria per a Europa</p>
-          <p class="pub-desc">L’autonomia estratègica europea es construirà en territoris concrets. Catalunya, amb tradició manufacturera i clústers consolidats, pot situar-se com un node de referència dins les cadenes de valor que la UE està reconstruint.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_7">L’autonomia estratègica europea es construirà en territoris concrets. Catalunya, amb tradició manufacturera i clústers consolidats, pot situar-se com un node de referència dins les cadenes de valor que la UE està reconstruint.</p>
           <a href="https://exterior.cat/opinio/una-industria-per-a-europa/" target="_blank" rel="noopener" class="pub-link">
-            Llegir article
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Llegir article</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Jun. 2026</span>
@@ -1280,10 +1311,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">La UE desbloquea el Acuerdo de Turnberry bajo la presión de Trump</p>
-          <p class="pub-desc">Diez meses de retrasos y bloqueos institucionales culminan en un texto que la UE presenta como éxito negociador, pero que no altera el desequilibrio inicial: aranceles asimétricos, compromisos energéticos y cláusulas de salvaguarda insuficientes.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_8">Diez meses de retrasos y bloqueos institucionales culminan en un texto que la UE presenta como éxito negociador, pero que no altera el desequilibrio inicial: aranceles asimétricos, compromisos energéticos y cláusulas de salvaguarda insuficientes.</p>
           <a href="https://www.descifrandolaguerra.es/union-europea-acuerdo-de-turnberry-trump/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">May. 2026</span>
@@ -1292,10 +1322,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">Las dependencias estratégicas en la transición energética de la Unión Europea</p>
-          <p class="pub-desc">Análisis del proceso de securitización de la energía en la UE y la metamorfosis de sus dependencias: de los hidrocarburos rusos a las materias primas críticas y tecnologías de la transición verde controladas por China.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_9">Análisis del proceso de securitización de la energía en la UE y la metamorfosis de sus dependencias: de los hidrocarburos rusos a las materias primas críticas y tecnologías de la transición verde controladas por China.</p>
           <a href="https://www.descifrandolaguerra.es/dependencias-transicion-energetica-union-europea/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">May. 2026</span>
@@ -1304,10 +1333,9 @@
         <div>
           <p class="pub-source">exterior.cat</p>
           <p class="pub-title">Què pot aportar Catalunya a Europa?</p>
-          <p class="pub-desc">Quaranta anys després de l'adhesió d'Espanya a la UE, és hora de girar la pregunta. Quines particularitats catalanes —democràtiques, lingüístiques, regionals— poden contribuir a una Europa més legítima i propera als seus ciutadans?</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_10">Quaranta anys després de l'adhesió d'Espanya a la UE, és hora de girar la pregunta. Quines particularitats catalanes —democràtiques, lingüístiques, regionals— poden contribuir a una Europa més legítima i propera als seus ciutadans?</p>
           <a href="https://exterior.cat/opinio/que-pot-aportar-catalunya-a-europa/" target="_blank" rel="noopener" class="pub-link">
-            Llegir article
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Llegir article</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">May. 2026</span>
@@ -1316,10 +1344,9 @@
         <div>
           <p class="pub-source">infoLibre</p>
           <p class="pub-title">De los gasoductos a los minerales: la dependencia perpetua</p>
-          <p class="pub-desc">El plan REPowerEU desacopló a Europa de Rusia, pero la transición verde entraña nuevas dependencias en materias primas críticas y tecnología limpia. Una transición sin soberanía material jamás será una transición segura.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_11">El plan REPowerEU desacopló a Europa de Rusia, pero la transición verde entraña nuevas dependencias en materias primas críticas y tecnología limpia. Una transición sin soberanía material jamás será una transición segura.</p>
           <a href="https://www.infolibre.es/opinion/plaza-publica/gasoductos-minerales-dependencia-perpetua_129_2186109.html" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">May. 2026</span>
@@ -1328,10 +1355,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">El debate de la disuasión nuclear europea</p>
-          <p class="pub-desc">La erosión del paraguas nuclear transatlántico, la doctrina más agresiva de Moscú y el repliegue estratégico de Washington plantean un debate urgente sobre el único pilar de disuasión estrictamente europeo: el eje franco-británico.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_12">La erosión del paraguas nuclear transatlántico, la doctrina más agresiva de Moscú y el repliegue estratégico de Washington plantean un debate urgente sobre el único pilar de disuasión estrictamente europeo: el eje franco-británico.</p>
           <a href="https://www.descifrandolaguerra.es/disuasion-nuclear-europea/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Abr. 2026</span>
@@ -1340,10 +1366,9 @@
         <div>
           <p class="pub-source">infoLibre</p>
           <p class="pub-title">Comprar europeo, cuestión de seguridad</p>
-          <p class="pub-desc">En un escenario de competencia geoeconómica entre grandes potencias industriales, la autonomía estratégica no es solo independencia política: es capacidad material de producir los medios que permiten influir en el sistema internacional.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_13">En un escenario de competencia geoeconómica entre grandes potencias industriales, la autonomía estratégica no es solo independencia política: es capacidad material de producir los medios que permiten influir en el sistema internacional.</p>
           <a href="https://www.infolibre.es/opinion/plaza-publica/comprar-europeo-cuestion-seguridad_129_2165566.html" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Mar. 2026</span>
@@ -1352,10 +1377,9 @@
         <div>
           <p class="pub-source">exterior.cat</p>
           <p class="pub-title">El valor de ser-hi</p>
-          <p class="pub-desc">L'anunci que Catalunya tindrà representació a la UNESCO i a l'Organització Mundial del Turisme apunta a una qüestió estructural: com Catalunya pot projectar-se internacionalment en un sistema global que no funciona exclusivament a partir de la diplomàcia clàssica entre estats.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_14">L'anunci que Catalunya tindrà representació a la UNESCO i a l'Organització Mundial del Turisme apunta a una qüestió estructural: com Catalunya pot projectar-se internacionalment en un sistema global que no funciona exclusivament a partir de la diplomàcia clàssica entre estats.</p>
           <a href="https://exterior.cat/opinio/el-valor-de-ser-hi/" target="_blank" rel="noopener" class="pub-link">
-            Llegir article
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Llegir article</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Gen. 2026</span>
@@ -1364,10 +1388,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">La dependencia europea del gas estadounidense</p>
-          <p class="pub-desc">Tres anys después de la crisis energética, el GNL estadounidense se ha convertido en eje estructural del nuevo orden energético europeo. El acuerdo de Turnberry consolida una nueva dependencia, esta vez de Washington en lugar de Moscú.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_15">Tres anys después de la crisis energética, el GNL estadounidense se ha convertido en eje estructural del nuevo orden energético europeo. El acuerdo de Turnberry consolida una nueva dependencia, esta vez de Washington en lugar de Moscú.</p>
           <a href="https://www.descifrandolaguerra.es/dependencia-europea-del-gas-estadounidense/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Sep. 2025</span>
@@ -1376,10 +1399,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">El Reino Unido como pilar externo en la nueva arquitectura de defensa europea</p>
-          <p class="pub-desc">Con el deterioro del entorno de seguridad europeo y las dudas sobre el liderazgo estadounidense, el Reino Unido reaparece como actor clave pese al Brexit, reconstruyendo su relación con Bruselas desde la cooperación en defensa.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_16">Con el deterioro del entorno de seguridad europeo y las dudas sobre el liderazgo estadounidense, el Reino Unido reaparece como actor clave pese al Brexit, reconstruyendo su relación con Bruselas desde la cooperación en defensa.</p>
           <a href="https://www.descifrandolaguerra.es/reino-unido-pilar-externo-defensa-europea/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Jul. 2025</span>
@@ -1388,10 +1410,9 @@
         <div>
           <p class="pub-source">Descifrando la Guerra</p>
           <p class="pub-title">El SEAE y los límites de la política exterior de Europa</p>
-          <p class="pub-desc">Análisis de la arquitectura diplomática de la UE, las contradicciones estructurales del Servicio Europeo de Acción Exterior y los límites de la política exterior comunitaria en un contexto de creciente competición geopolítica.</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_17">Análisis de la arquitectura diplomática de la UE, las contradicciones estructurales del Servicio Europeo de Acción Exterior y los límites de la política exterior comunitaria en un contexto de creciente competición geopolítica.</p>
           <a href="https://www.descifrandolaguerra.es/seae-politica-exterior-europa/" target="_blank" rel="noopener" class="pub-link">
-            Leer artículo
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span data-i18n="read_article">Leer artículo</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
         <span class="pub-date">Feb. 2025</span>
@@ -1407,35 +1428,32 @@
     <div class="book-grid">
 
       <div class="book-card reveal">
-        <span class="book-role">Coordinador editorial</span>
+        <span class="book-role" data-i18n="book_role">Coordinador editorial</span>
         <p class="book-title">Ciencia, Industria y Competitividad</p>
         <p class="book-org">Fundación Alternativas · 2025</p>
         <p class="pub-desc" style="font-size:0.8125rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0.75rem;">Informe sobre los desafíos de competitividad industrial y científica de España en el contexto europeo, con propuestas de política pública orientadas a reforzar la base industrial estratégica.</p>
         <a href="https://fundacionalternativas.org/publicaciones/ciencia-industria-y-competitividad/" target="_blank" rel="noopener" class="book-link">
-          Ver publicación
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span data-i18n="see_publication">Ver publicación</span>          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </div>
 
       <div class="book-card reveal">
-        <span class="book-role">Coordinador editorial</span>
+        <span class="book-role" data-i18n="book_role">Coordinador editorial</span>
         <p class="book-title">Treinta años de los Pactos de Toledo</p>
         <p class="book-org">Fundación Alternativas · 2025</p>
         <p class="pub-desc" style="font-size:0.8125rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0.75rem;">Balance crítico de tres décadas del sistema de pensiones español y los Pactos de Toledo, con perspectivas de reforma para garantizar su sostenibilidad futura.</p>
         <a href="https://fundacionalternativas.org/publicaciones/treinta-anos-de-los-pactos-de-toledo-copy/" target="_blank" rel="noopener" class="book-link">
-          Ver publicación
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span data-i18n="see_publication">Ver publicación</span>          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </div>
 
       <div class="book-card reveal">
-        <span class="book-role">Coordinador editorial</span>
+        <span class="book-role" data-i18n="book_role">Coordinador editorial</span>
         <p class="book-title">VII Informe sobre Desigualdad en España</p>
         <p class="book-org">Fundación Alternativas · 2025</p>
         <p class="pub-desc" style="font-size:0.8125rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0.75rem;">Séptima edición del informe anual de referencia sobre la evolución de la desigualdad económica y social en España, con análisis comparado en el contexto europeo.</p>
         <a href="https://fundacionalternativas.org/publicaciones/vii-informe-de-desigualdad/" target="_blank" rel="noopener" class="book-link">
-          Ver publicación
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span data-i18n="see_publication">Ver publicación</span>          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </div>
 
@@ -1448,7 +1466,7 @@
 <!-- CV -->
 <div id="cv">
   <div class="inner">
-    <p class="section-label">Formación y experiencia</p>
+    <p class="section-label" data-i18n="cv_label">Formación y experiencia</p>
     <h2 class="section-title">Curriculum Vitae</h2>
     <div class="cv-grid">
 
@@ -1458,19 +1476,19 @@
           <span class="cv-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
           </span>
-          Formación académica
+          <span data-i18n="cv_education">Formación académica</span>
         </h3>
 
         <div class="cv-entry reveal">
           <p class="cv-period">Oct. 2025 — Jun. 2026</p>
-          <p class="cv-title">Máster Universitario en Unión Europea</p>
+          <p class="cv-title" data-i18n="cv_master">Máster Universitario en Unión Europea</p>
           <p class="cv-org">Universidad Nacional de Educación a Distancia (UNED)</p>
 
         </div>
 
         <div class="cv-entry reveal">
           <p class="cv-period">Sept. 2021 — Jun. 2025</p>
-          <p class="cv-title">Grado en Historia, Política y Economía Contemporáneas</p>
+          <p class="cv-title" data-i18n="cv_degree">Grado en Historia, Política y Economía Contemporáneas</p>
           <p class="cv-org">Universitat Autònoma de Barcelona (UAB)</p>
 
         </div>
@@ -1482,21 +1500,21 @@
           <span class="cv-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
           </span>
-          Experiencia profesional
+          <span data-i18n="cv_experience">Experiencia profesional</span>
         </h3>
 
         <div class="cv-entry reveal">
-          <p class="cv-period">Oct. 2025 — Actualidad</p>
-          <p class="cv-title">Coordinador del Laboratorio de Políticas Públicas</p>
+          <p class="cv-period"><span data-i18n="cv_period_present">Oct. 2025 — Actualidad</span></p>
+          <p class="cv-title" data-i18n="cv_job1_title">Coordinador del Laboratorio de Políticas Públicas</p>
           <p class="cv-org">Fundación Alternativas · Madrid</p>
-          <p class="cv-desc">Coordinación, planificación y supervisión de la elaboración de informes y <em>policy papers</em> sobre temas de interés público. Presentación y difusión ante audiencias académicas, institucionales y sociales. Participación en proyectos europeos con <em>think tanks</em> internacionales.</p>
+          <p class="cv-desc" data-i18n-html="cv_job1_desc">Coordinación, planificación y supervisión de la elaboración de informes y <em>policy papers</em> sobre temas de interés público. Presentación y difusión ante audiencias académicas, institucionales y sociales. Participación en proyectos europeos con <em>think tanks</em> internacionales.</p>
         </div>
 
         <div class="cv-entry reveal">
-          <p class="cv-period">Nov. 2023 — Actualidad</p>
-          <p class="cv-title">Analista de política internacional</p>
-          <p class="cv-org">Analista internacional</p>
-          <p class="cv-desc">Publicación de análisis sobre asuntos europeos e internacionales en <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.</p>
+          <p class="cv-period"><span data-i18n="cv_period_present2">Nov. 2023 — Actualidad</span></p>
+          <p class="cv-title" data-i18n="cv_job2_title">Analista de política internacional</p>
+          <p class="cv-org" data-i18n="cv_job2_org">Analista internacional</p>
+          <p class="cv-desc" data-i18n-html="cv_job2_desc">Publicación de análisis sobre asuntos europeos e internacionales en <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.</p>
         </div>
       </div>
     </div>
@@ -1507,12 +1525,12 @@
 
 <!-- CONTACTO -->
 <section id="contacto">
-  <p class="section-label">Colaboraciones y consultas</p>
-  <h2 class="section-title">Contacto</h2>
+  <p class="section-label" data-i18n="contact_label">Colaboraciones y consultas</p>
+  <h2 class="section-title" data-i18n="nav_contact">Contacto</h2>
   <div class="contact-layout">
     <div>
       <div class="contact-text">
-        <p>Contacta conmigo.</p>
+        <p data-i18n="contact_text">Contacta conmigo.</p>
       </div>
       <div class="contact-items">
         <a href="mailto:munozrodriguezmarcel@gmail.com" class="contact-item">
@@ -1520,7 +1538,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <div class="contact-item-text">
-            <strong>Correo electrónico</strong>
+            <strong data-i18n="contact_email">Correo electrónico</strong>
             <span>munozrodriguezmarcel@gmail.com</span>
           </div>
         </a>
@@ -1546,28 +1564,273 @@
     </div>
 
     <div class="about-mini">
-      <h3>Áreas de especialización</h3>
+      <h3 data-i18n="contact_areas">Áreas de especialización</h3>
       
       <div class="tags">
-          <span class="tag">Autonomía estratégica UE</span>
-          <span class="tag">Política energética</span>
-          <span class="tag">Interdependencia asimétrica</span>
-          <span class="tag">Materias primas críticas</span>
-          <span class="tag">Política industrial</span>
-          <span class="tag">Geopolítica</span>
-          <span class="tag">Defensa</span>
-          <span class="tag">Dependencias críticas</span>
+          <span class="tag" data-i18n="tag_1">Autonomía estratégica UE</span>
+          <span class="tag" data-i18n="tag_2">Política energética</span>
+          <span class="tag" data-i18n="tag_3">Interdependencia asimétrica</span>
+          <span class="tag" data-i18n="tag_4">Materias primas críticas</span>
+          <span class="tag" data-i18n="tag_5">Política industrial</span>
+          <span class="tag" data-i18n="tag_6">Geopolítica</span>
+          <span class="tag" data-i18n="tag_7">Defensa</span>
+          <span class="tag" data-i18n="tag_8">Dependencias críticas</span>
         </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p><strong>Marcel Muñoz Rodríguez</strong> · Politólogo especializado en asuntos europeos e internacionales</p>
+  <p><strong>Marcel Muñoz Rodríguez</strong> · <span data-i18n="hero_subtitle">Politólogo especializado en asuntos europeos e internacionales</span></p>
   <p style="margin-top:0.4rem;">munozrodriguezmarcel@gmail.com</p>
 </footer>
 
 <script>
+  // ===== I18N TRANSLATIONS =====
+  const T = {
+    es: {
+      nav_about: 'Sobre mí',
+      nav_pub: 'Publicaciones',
+      nav_contact: 'Contacto',
+      hero_subtitle: 'Politólogo especializado en asuntos europeos e internacionales',
+      hero_affil1: 'Coordinador del Laboratorio de Políticas Públicas · Fundación Alternativas',
+      hero_affil2: 'Analista internacional',
+      about_label: 'Trayectoria',
+      about_title: 'Sobre mí',
+      about_p1: 'Graduado en Historia, Política y Economía Contemporáneas por la Universitat Autònoma de Barcelona y Máster Universitario en Unión Europea por la UNED.',
+      about_p2: 'Actualmente ocupo el puesto de <strong>Coordinador del Laboratorio de Políticas Públicas de la Fundación Alternativas</strong>, donde coordino, planifico y superviso la elaboración de informes y <em>policy papers</em> sobre diversos temas de interés público, así como su presentación y difusión ante audiencias académicas, institucionales y sociales. Además, participo en proyectos europeos junto a otros <em>think tanks</em> internacionales.',
+      about_p3: 'Publico análisis y artículos de opinión sobre asuntos europeos e internacionales en medios especializados como <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.',
+      about_p4: 'Mis intereses académicos se centran en la <strong>autonomía estratégica de la UE</strong> y las <strong>dependencias críticas</strong> europeas: energía, semiconductores y materias primas, y su impacto sobre la capacidad de acción exterior de la Unión en un orden internacional cada vez más competitivo.',
+      pub_label: 'Investigación y análisis',
+      pub_title: 'Publicaciones',
+      pub_tab_articles: 'Artículos',
+      pub_tab_editorial: 'Coordinación editorial',
+      read_article: 'Leer artículo',
+      see_publication: 'Ver publicación',
+      show_more: 'Ver más artículos',
+      show_less: 'Ver menos',
+      book_role: 'Coordinador editorial',
+      cv_label: 'Formación y experiencia',
+      cv_education: 'Formación académica',
+      cv_master: 'Máster Universitario en Unión Europea',
+      cv_degree: 'Grado en Historia, Política y Economía Contemporáneas',
+      cv_experience: 'Experiencia profesional',
+      cv_period_present: 'Oct. 2025 — Actualidad',
+      cv_period_present2: 'Nov. 2023 — Actualidad',
+      cv_job1_title: 'Coordinador del Laboratorio de Políticas Públicas',
+      cv_job1_desc: 'Coordinación, planificación y supervisión de la elaboración de informes y <em>policy papers</em> sobre temas de interés público. Presentación y difusión ante audiencias académicas, institucionales y sociales. Participación en proyectos europeos con <em>think tanks</em> internacionales.',
+      cv_job2_title: 'Analista de política internacional',
+      cv_job2_org: 'Analista internacional',
+      cv_job2_desc: 'Publicación de análisis sobre asuntos europeos e internacionales en <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> y <strong>exterior.cat</strong>.',
+      contact_label: 'Colaboraciones y consultas',
+      contact_text: 'Contacta conmigo.',
+      contact_email: 'Correo electrónico',
+      contact_areas: 'Áreas de especialización',
+      tag_1: 'Autonomía estratégica UE',
+      tag_2: 'Política energética',
+      tag_3: 'Interdependencia asimétrica',
+      tag_4: 'Materias primas críticas',
+      tag_5: 'Política industrial',
+      tag_6: 'Geopolítica',
+      tag_7: 'Defensa',
+      tag_8: 'Dependencias críticas',
+      pub_desc_1: "L\u2019arribada d\u2019un centre de dades a Molins de Rei s\u2019inscriu en l\u2019aposta europea per la sobirania digital, per\u00f2 planteja reptes concrets d\u2019impacte ambiental, consum energ\u00e8tic i garanties de transpar\u00e8ncia que cal abordar des del territori.",
+      pub_desc_2: 'La petrolera tejana Greenland Energy, vinculada al entorno de Trump, desembarca maquinaria de perforación en Groenlandia sin autorización de Nuuk. El episodio marca un cambio de método: de las amenazas diplomáticas a los hechos consumados sobre el terreno mediante actores privados.',
+      pub_desc_3: 'La tensión entre la Alta Representante y la presidenta de la Comisión no es una pugna personal: refleja la ambigüedad estructural de la arquitectura diplomática de la UE, convertida en vulnerabilidad estratégica en un contexto que exige coherencia exterior.',
+      pub_desc_4: "El Corredor Mediterrani ha estat un debat d\u2019infraestructures i territori. El nou context geopol\u00edtic l\u2019eleva a pe\u00e7a clau de l\u2019autonomia estrat\u00e8gica europea: connectar cadenes de valor, refor\u00e7ar la pol\u00edtica industrial i reduir la vulnerabilitat del mercat interior davant les disrupcions globals.",
+      pub_desc_5: 'En un contexto de rivalidad geopolítica e interdependencia económica, la UE debe integrar la seguridad en su política económica: diversificar socios fiables, reforzar su competitividad en cadenas de valor estratégicas y actuar a escala comunitaria para no confundir apertura con indefensión.',
+      pub_desc_6: 'Doscientos cincuenta años después de la Declaración de Independencia, la principal amenaza para el proyecto fundacional estadounidense procede de su propia presidencia: concentración de poder, erosión de contrapesos y renuncia explícita a los principios que definieron la república.',
+      pub_desc_7: "L\u2019autonomia estrat\u00e8gica europea es construir\u00e0 en territoris concrets. Catalunya, amb tradici\u00f3 manufacturera i cl\u00fasters consolidats, pot situar-se com un node de refer\u00e8ncia dins les cadenes de valor que la UE est\u00e0 reconstruint.",
+      pub_desc_8: 'Diez meses de retrasos y bloqueos institucionales culminan en un texto que la UE presenta como éxito negociador, pero que no altera el desequilibrio inicial: aranceles asimétricos, compromisos energéticos y cláusulas de salvaguarda insuficientes.',
+      pub_desc_9: 'Análisis del proceso de securitización de la energía en la UE y la metamorfosis de sus dependencias: de los hidrocarburos rusos a las materias primas críticas y tecnologías de la transición verde controladas por China.',
+      pub_desc_10: "Quaranta anys despr\u00e9s de l\u2019adhesi\u00f3 d\u2019Espanya a la UE, \u00e9s hora de girar la pregunta. Quines particularitats catalanes \u2014democr\u00e0tiques, ling\u00fc\u00edstiques, regionals\u2014 poden contribuir a una Europa m\u00e9s leg\u00edtima i propera als seus ciutadans?",
+      pub_desc_11: 'El plan REPowerEU desacopló a Europa de Rusia, pero la transición verde entraña nuevas dependencias en materias primas críticas y tecnología limpia. Una transición sin soberanía material jamás será una transición segura.',
+      pub_desc_12: 'La erosión del paraguas nuclear transatlántico, la doctrina más agresiva de Moscú y el repliegue estratégico de Washington plantean un debate urgente sobre el único pilar de disuasión estrictamente europeo: el eje franco-británico.',
+      pub_desc_13: 'En un escenario de competencia geoeconómica entre grandes potencias industriales, la autonomía estratégica no es solo independencia política: es capacidad material de producir los medios que permiten influir en el sistema internacional.',
+      pub_desc_14: "L\u2019anunci que Catalunya tindr\u00e0 representaci\u00f3 a la UNESCO i a l\u2019Organitzaci\u00f3 Mundial del Turisme apunta a una q\u00fcesti\u00f3 estructural: com Catalunya pot projectar-se internacionalment en un sistema global que no funciona exclusivament a partir de la diplom\u00e0cia cl\u00e0ssica entre estats.",
+      pub_desc_15: 'Tres años después de la crisis energética, el GNL estadounidense se ha convertido en eje estructural del nuevo orden energético europeo. El acuerdo de Turnberry consolida una nueva dependencia, esta vez de Washington en lugar de Moscú.',
+      pub_desc_16: 'Con el deterioro del entorno de seguridad europeo y las dudas sobre el liderazgo estadounidense, el Reino Unido reaparece como actor clave pese al Brexit, reconstruyendo su relación con Bruselas desde la cooperación en defensa.',
+      pub_desc_17: 'Análisis de la arquitectura diplomática de la UE, las contradicciones estructurales del Servicio Europeo de Acción Exterior y los límites de la política exterior comunitaria en un contexto de creciente competición geopolítica.',
+    },
+    ca: {
+      nav_about: 'Sobre mi',
+      nav_pub: 'Publicacions',
+      nav_contact: 'Contacte',
+      hero_subtitle: 'Politòleg especialitzat en afers europeus i internacionals',
+      hero_affil1: 'Coordinador del Laboratorio de Políticas Públicas · Fundación Alternativas',
+      hero_affil2: 'Analista internacional',
+      about_label: 'Trajectòria',
+      about_title: 'Sobre mi',
+      about_p1: 'Graduat en Història, Política i Economia Contemporànies per la Universitat Autònoma de Barcelona i Màster Universitari en Unió Europea per la UNED.',
+      about_p2: 'Actualment ocupo el càrrec de <strong>Coordinador del Laboratorio de Políticas Públicas de la Fundación Alternativas</strong>, on coordino, planifico i superviso l\'elaboració d\'informes i <em>policy papers</em> sobre diversos temes d\'interès públic, així com la seva presentació i difusió davant audiències acadèmiques, institucionals i socials. A més, participo en projectes europeus amb altres <em>think tanks</em> internacionals.',
+      about_p3: 'Publico anàlisis i articles d\'opinió sobre afers europeus i internacionals en mitjans especialitzats com <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> i <strong>exterior.cat</strong>.',
+      about_p4: 'Els meus interessos acadèmics se centren en l\'<strong>autonomia estratègica de la UE</strong> i les <strong>dependències crítiques</strong> europees: energia, semiconductors i matèries primeres, i el seu impacte sobre la capacitat d\'acció exterior de la Unió en un ordre internacional cada cop més competitiu.',
+      pub_label: 'Recerca i anàlisi',
+      pub_title: 'Publicacions',
+      pub_tab_articles: 'Articles',
+      pub_tab_editorial: 'Coordinació editorial',
+      read_article: 'Llegir article',
+      see_publication: 'Veure publicació',
+      show_more: 'Veure més articles',
+      show_less: 'Veure menys',
+      book_role: 'Coordinador editorial',
+      cv_label: 'Formació i experiència',
+      cv_education: 'Formació acadèmica',
+      cv_master: 'Màster Universitari en Unió Europea',
+      cv_degree: 'Grau en Història, Política i Economia Contemporànies',
+      cv_experience: 'Experiència professional',
+      cv_period_present: 'Oct. 2025 — Actualitat',
+      cv_period_present2: 'Nov. 2023 — Actualitat',
+      cv_job1_title: 'Coordinador del Laboratorio de Políticas Públicas',
+      cv_job1_desc: 'Coordinació, planificació i supervisió de l\'elaboració d\'informes i <em>policy papers</em> sobre temes d\'interès públic. Presentació i difusió davant audiències acadèmiques, institucionals i socials. Participació en projectes europeus amb <em>think tanks</em> internacionals.',
+      cv_job2_title: 'Analista de política internacional',
+      cv_job2_org: 'Analista internacional',
+      cv_job2_desc: 'Publicació d\'anàlisis sobre afers europeus i internacionals a <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> i <strong>exterior.cat</strong>.',
+      contact_label: 'Col·laboracions i consultes',
+      contact_text: 'Contacta amb mi.',
+      contact_email: 'Correu electrònic',
+      contact_areas: 'Àrees d\'especialització',
+      tag_1: 'Autonomia estratègica UE',
+      tag_2: 'Política energètica',
+      tag_3: 'Interdependència asimètrica',
+      tag_4: 'Matèries primeres crítiques',
+      tag_5: 'Política industrial',
+      tag_6: 'Geopolítica',
+      tag_7: 'Defensa',
+      tag_8: 'Dependències crítiques',
+      pub_desc_1: "L'arribada d'un centre de dades a Molins de Rei s'inscriu en l'aposta europea per la sobirania digital, però planteja reptes concrets d'impacte ambiental, consum energètic i garanties de transparència que cal abordar des del territori.",
+      pub_desc_2: 'La petroliera texana Greenland Energy, vinculada a l\'entorn de Trump, desembarca maquinària de perforació a Groenlàndia sense autorització de Nuuk. L\'episodi marca un canvi de mètode: de les amenaces diplomàtiques als fets consumats sobre el terreny mitjançant actors privats.',
+      pub_desc_3: 'La tensió entre l\'Alta Representant i la presidenta de la Comissió no és una pugna personal: reflecteix l\'ambigüitat estructural de l\'arquitectura diplomàtica de la UE, convertida en vulnerabilitat estratègica en un context que exigeix coherència exterior.',
+      pub_desc_4: "El Corredor Mediterrani ha estat un debat d'infraestructures i territori. El nou context geopolític l'eleva a peça clau de l'autonomia estratègica europea: connectar cadenes de valor, reforçar la política industrial i reduir la vulnerabilitat del mercat interior davant les disrupcions globals.",
+      pub_desc_5: 'En un context de rivalitat geopolítica i interdependència econòmica, la UE ha d\'integrar la seguretat en la seva política econòmica: diversificar socis fiables, reforçar la seva competitivitat en cadenes de valor estratègiques i actuar a escala comunitària per no confondre obertura amb indefensió.',
+      pub_desc_6: 'Dos-cents cinquanta anys després de la Declaració d\'Independència, la principal amenaça per al projecte fundacional nord-americà prové de la seva pròpia presidència: concentració de poder, erosió de contrapesos i renúncia explícita als principis que van definir la república.',
+      pub_desc_7: "L'autonomia estratègica europea es construirà en territoris concrets. Catalunya, amb tradició manufacturera i clústers consolidats, pot situar-se com un node de referència dins les cadenes de valor que la UE està reconstruint.",
+      pub_desc_8: 'Deu mesos de retards i bloquejos institucionals culminen en un text que la UE presenta com a èxit negociador, però que no altera el desequilibri inicial: aranzels asimètrics, compromisos energètics i clàusules de salvaguarda insuficients.',
+      pub_desc_9: 'Anàlisi del procés de securitització de l\'energia a la UE i la metamorfosi de les seves dependències: dels hidrocarburs russos a les matèries primeres crítiques i tecnologies de la transició verda controlades per la Xina.',
+      pub_desc_10: "Quaranta anys després de l'adhesió d'Espanya a la UE, és hora de girar la pregunta. Quines particularitats catalanes —democràtiques, lingüístiques, regionals— poden contribuir a una Europa més legítima i propera als seus ciutadans?",
+      pub_desc_11: 'El pla REPowerEU va desacoblar Europa de Rússia, però la transició verda comporta noves dependències en matèries primeres crítiques i tecnologia neta. Una transició sense sobirania material mai no serà una transició segura.',
+      pub_desc_12: 'L\'erosió del paraigua nuclear transatlàntic, la doctrina més agressiva de Moscou i el replegament estratègic de Washington plantegen un debat urgent sobre l\'únic pilar de dissuasió estrictament europeu: l\'eix franco-britànic.',
+      pub_desc_13: 'En un escenari de competència geoeconòmica entre grans potències industrials, l\'autonomia estratègica no és només independència política: és capacitat material de produir els mitjans que permeten influir en el sistema internacional.',
+      pub_desc_14: "L'anunci que Catalunya tindrà representació a la UNESCO i a l'Organització Mundial del Turisme apunta a una qüestió estructural: com Catalunya pot projectar-se internacionalment en un sistema global que no funciona exclusivament a partir de la diplomàcia clàssica entre estats.",
+      pub_desc_15: 'Tres anys després de la crisi energètica, el GNL nord-americà s\'ha convertit en eix estructural del nou ordre energètic europeu. L\'acord de Turnberry consolida una nova dependència, aquest cop de Washington en lloc de Moscou.',
+      pub_desc_16: 'Amb el deteriorament de l\'entorn de seguretat europeu i els dubtes sobre el lideratge nord-americà, el Regne Unit reapareix com a actor clau malgrat el Brexit, reconstruint la seva relació amb Brussel·les des de la cooperació en defensa.',
+      pub_desc_17: 'Anàlisi de l\'arquitectura diplomàtica de la UE, les contradiccions estructurals del Servei Europeu d\'Acció Exterior i els límits de la política exterior comunitària en un context de creixent competició geopolítica.',
+    },
+    en: {
+      nav_about: 'About',
+      nav_pub: 'Publications',
+      nav_contact: 'Contact',
+      hero_subtitle: 'Political scientist specialising in European and international affairs',
+      hero_affil1: 'Coordinator of the Public Policy Lab · Fundación Alternativas',
+      hero_affil2: 'International affairs analyst',
+      about_label: 'Background',
+      about_title: 'About me',
+      about_p1: 'Graduate in Contemporary History, Politics and Economics from the Universitat Autònoma de Barcelona, and holder of a Master\'s degree in European Union studies from UNED.',
+      about_p2: 'I currently serve as <strong>Coordinator of the Public Policy Lab at Fundación Alternativas</strong>, where I coordinate, plan and oversee the production of reports and <em>policy papers</em> on issues of public interest, as well as their presentation to academic, institutional and social audiences. I also take part in European projects alongside other international <em>think tanks</em>.',
+      about_p3: 'I publish analysis and opinion articles on European and international affairs in specialised outlets such as <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> and <strong>exterior.cat</strong>.',
+      about_p4: 'My academic interests focus on <strong>EU strategic autonomy</strong> and Europe\'s <strong>critical dependencies</strong>: energy, semiconductors and raw materials, and their impact on the Union\'s capacity for external action in an increasingly competitive international order.',
+      pub_label: 'Research and analysis',
+      pub_title: 'Publications',
+      pub_tab_articles: 'Articles',
+      pub_tab_editorial: 'Editorial coordination',
+      read_article: 'Read article',
+      see_publication: 'See publication',
+      show_more: 'Show more articles',
+      show_less: 'Show less',
+      book_role: 'Editorial coordinator',
+      cv_label: 'Education and experience',
+      cv_education: 'Education',
+      cv_master: 'Master\'s Degree in European Union',
+      cv_degree: 'Bachelor\'s Degree in Contemporary History, Politics and Economics',
+      cv_experience: 'Professional experience',
+      cv_period_present: 'Oct. 2025 — Present',
+      cv_period_present2: 'Nov. 2023 — Present',
+      cv_job1_title: 'Coordinator of the Public Policy Lab',
+      cv_job1_desc: 'Coordination, planning and oversight of reports and <em>policy papers</em> on issues of public interest. Presentation and dissemination to academic, institutional and social audiences. Participation in European projects with international <em>think tanks</em>.',
+      cv_job2_title: 'International affairs analyst',
+      cv_job2_org: 'International analyst',
+      cv_job2_desc: 'Publication of analysis on European and international affairs in <strong>infoLibre</strong>, <strong>Descifrando la Guerra</strong> and <strong>exterior.cat</strong>.',
+      contact_label: 'Collaborations and enquiries',
+      contact_text: 'Get in touch.',
+      contact_email: 'Email',
+      contact_areas: 'Areas of expertise',
+      tag_1: 'EU strategic autonomy',
+      tag_2: 'Energy policy',
+      tag_3: 'Asymmetric interdependence',
+      tag_4: 'Critical raw materials',
+      tag_5: 'Industrial policy',
+      tag_6: 'Geopolitics',
+      tag_7: 'Defence',
+      tag_8: 'Critical dependencies',
+      pub_desc_1: 'The arrival of a data centre in Molins de Rei fits into Europe\'s push for digital sovereignty, but raises concrete challenges around environmental impact, energy consumption and transparency guarantees that must be addressed locally.',
+      pub_desc_2: 'Texas-based Greenland Energy, linked to Trump\'s circle, lands drilling equipment in Greenland without Nuuk\'s authorisation. The episode marks a shift in method: from diplomatic threats to faits accomplis on the ground through private actors.',
+      pub_desc_3: 'The tension between the High Representative and the Commission President is not a personal feud: it reflects the structural ambiguity of the EU\'s diplomatic architecture, turned into a strategic vulnerability at a time that demands external coherence.',
+      pub_desc_4: 'The Mediterranean Corridor has long been a debate about infrastructure and territory. The new geopolitical context elevates it to a key piece of European strategic autonomy: connecting value chains, strengthening industrial policy and reducing the single market\'s vulnerability to global disruptions.',
+      pub_desc_5: 'In a context of geopolitical rivalry and economic interdependence, the EU must integrate security into its economic policy: diversify reliable partners, strengthen its competitiveness in strategic value chains and act at community level to avoid confusing openness with defencelessness.',
+      pub_desc_6: 'Two hundred and fifty years after the Declaration of Independence, the main threat to the American founding project comes from its own presidency: concentration of power, erosion of checks and balances and an explicit renunciation of the principles that defined the republic.',
+      pub_desc_7: 'European strategic autonomy will be built in specific territories. Catalonia, with its manufacturing tradition and established clusters, can position itself as a key node within the value chains the EU is rebuilding.',
+      pub_desc_8: 'Ten months of delays and institutional deadlocks culminate in a text the EU presents as a negotiating success, but which does not alter the initial imbalance: asymmetric tariffs, energy commitments and insufficient safeguard clauses.',
+      pub_desc_9: 'Analysis of the securitisation of energy in the EU and the metamorphosis of its dependencies: from Russian hydrocarbons to the critical raw materials and green transition technologies controlled by China.',
+      pub_desc_10: 'Forty years after Spain\'s accession to the EU, it is time to turn the question around. Which Catalan particularities — democratic, linguistic, regional — can contribute to a more legitimate Europe, closer to its citizens?',
+      pub_desc_11: 'The REPowerEU plan decoupled Europe from Russia, but the green transition entails new dependencies on critical raw materials and clean technology. A transition without material sovereignty will never be a secure transition.',
+      pub_desc_12: 'The erosion of the transatlantic nuclear umbrella, Moscow\'s more aggressive doctrine and Washington\'s strategic retreat pose an urgent debate about the only strictly European deterrence pillar: the Franco-British axis.',
+      pub_desc_13: 'In a scenario of geoeconomic competition between major industrial powers, strategic autonomy is not just political independence: it is the material capacity to produce the means that allow influence in the international system.',
+      pub_desc_14: 'The announcement that Catalonia will have representation at UNESCO and the World Tourism Organisation points to a structural question: how Catalonia can project itself internationally in a global system that does not operate exclusively through classical state diplomacy.',
+      pub_desc_15: 'Three years after the energy crisis, US LNG has become a structural pillar of Europe\'s new energy order. The Turnberry agreement consolidates a new dependency, this time on Washington instead of Moscow.',
+      pub_desc_16: 'With the deterioration of the European security environment and doubts about US leadership, the United Kingdom re-emerges as a key actor despite Brexit, rebuilding its relationship with Brussels through defence cooperation.',
+      pub_desc_17: 'Analysis of the EU\'s diplomatic architecture, the structural contradictions of the European External Action Service and the limits of Community foreign policy in a context of growing geopolitical competition.',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+    });
+    // Update text-only elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (T[lang] && T[lang][key] !== undefined) {
+        el.textContent = T[lang][key];
+      }
+    });
+    // Update HTML elements (with bold/italic)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (T[lang] && T[lang][key] !== undefined) {
+        el.innerHTML = T[lang][key];
+      }
+    });
+    // Update the toggle button if it exists
+    updateToggleBtn();
+    // Update page title
+    const titles = {
+      es: 'Marcel Muñoz Rodríguez — Politólogo | Asuntos Europeos e Internacionales',
+      ca: 'Marcel Muñoz Rodríguez — Politòleg | Afers Europeus i Internacionals',
+      en: 'Marcel Muñoz Rodríguez — Political Scientist | European & International Affairs'
+    };
+    document.title = titles[lang] || titles.es;
+  }
+
+  function updateToggleBtn() {
+    const btn = document.getElementById('btn-ver-mas');
+    if (!btn) return;
+    const hidden = document.getElementById('pub-hidden');
+    const isOpen = hidden && hidden.style.display !== 'none';
+    const label = isOpen ? (T[currentLang]?.show_less || 'Ver menos') : (T[currentLang]?.show_more || 'Ver más artículos');
+    const rotate = isOpen ? ' transform:rotate(180deg);' : '';
+    btn.innerHTML = label + ' <svg id="btn-arrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform 0.3s;' + rotate + '"><path d="M19 9l-7 7-7-7"/></svg>';
+  }
+
+  // Apply saved language on load
+  window.addEventListener('DOMContentLoaded', function() {
+    if (currentLang !== 'es') setLang(currentLang);
+  });
+
   // Tab switching
   function showTab(tab) {
     document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
@@ -1581,12 +1844,9 @@
   // Toggle more articles
   function toggleMore() {
     const hidden = document.getElementById('pub-hidden');
-    const btn = document.getElementById('btn-ver-mas');
     const isOpen = hidden.style.display !== 'none';
     hidden.style.display = isOpen ? 'none' : 'block';
-    btn.innerHTML = isOpen
-      ? 'Ver más artículos <svg id="btn-arrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform 0.3s;"><path d="M19 9l-7 7-7-7"/></svg>'
-      : 'Ver menos <svg id="btn-arrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform 0.3s; transform:rotate(180deg);"><path d="M19 9l-7 7-7-7"/></svg>';
+    updateToggleBtn();
     if (!isOpen) setTimeout(checkReveal, 80);
   }
 
