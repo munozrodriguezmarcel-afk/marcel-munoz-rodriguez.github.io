@@ -1209,6 +1209,7 @@
   <div class="pub-tabs">
     <button class="pub-tab active" onclick="showTab('opinion')" data-i18n="pub_tab_articles">Artículos</button>
     <button class="pub-tab" onclick="showTab('editorial')" data-i18n="pub_tab_editorial">Coordinación editorial</button>
+    <button class="pub-tab" onclick="showTab('medios')" data-i18n="pub_tab_medios">Intervenciones</button>
   </div>
 
   <!-- OPINIÓN -->
@@ -1459,6 +1460,23 @@
 
     </div>
   </div>
+
+  <!-- INTERVENCIONES EN MEDIOS -->
+  <div id="tab-medios" class="pub-panel">
+    <div class="pub-grid">
+      <div class="pub-card reveal">
+        <div>
+          <p class="pub-source">Canal Senior</p>
+          <p class="pub-title">Cuando la IA decide por ti: ¿qué derechos tenemos?</p>
+          <p class="pub-desc" data-i18n-html="pub_desc_medios_1">La inteligencia artificial está cada vez más presente en herramientas capaces de analizar datos, hacer recomendaciones e incluso influir en decisiones importantes. En este episodio hablamos de los derechos que tenemos ante las decisiones automatizadas, de quién debe asumir la responsabilidad cuando algo falla y de cómo el Reglamento europeo de inteligencia artificial busca proteger a la ciudadanía.</p>
+          <a href="https://canalsenior.es/podcasts/cuando-la-ia-decide-por-ti-que-derechos-tenemos/" target="_blank" rel="noopener" class="pub-link">
+            <span data-i18n="listen_podcast">Escuchar podcast</span>            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+        <span class="pub-date">Ago. 2026</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
@@ -1605,7 +1623,9 @@
       pub_title: 'Publicaciones',
       pub_tab_articles: 'Artículos',
       pub_tab_editorial: 'Coordinación editorial',
+      pub_tab_medios: 'Intervenciones',
       read_article: 'Leer artículo',
+      listen_podcast: 'Escuchar podcast',
       see_publication: 'Ver publicación',
       show_more: 'Ver más artículos',
       show_less: 'Ver menos',
@@ -1651,6 +1671,7 @@
       pub_desc_15: 'Tres años después de la crisis energética, el GNL estadounidense se ha convertido en eje estructural del nuevo orden energético europeo. El acuerdo de Turnberry consolida una nueva dependencia, esta vez de Washington en lugar de Moscú.',
       pub_desc_16: 'Con el deterioro del entorno de seguridad europeo y las dudas sobre el liderazgo estadounidense, el Reino Unido reaparece como actor clave pese al Brexit, reconstruyendo su relación con Bruselas desde la cooperación en defensa.',
       pub_desc_17: 'Análisis de la arquitectura diplomática de la UE, las contradicciones estructurales del Servicio Europeo de Acción Exterior y los límites de la política exterior comunitaria en un contexto de creciente competición geopolítica.',
+      pub_desc_medios_1: 'La inteligencia artificial está cada vez más presente en herramientas capaces de analizar datos, hacer recomendaciones e incluso influir en decisiones importantes. En este episodio hablamos de los derechos que tenemos ante las decisiones automatizadas, de quién debe asumir la responsabilidad cuando algo falla y de cómo el Reglamento europeo de inteligencia artificial busca proteger a la ciudadanía.',
     },
     ca: {
       nav_about: 'Sobre mi',
@@ -1669,7 +1690,9 @@
       pub_title: 'Publicacions',
       pub_tab_articles: 'Articles',
       pub_tab_editorial: 'Coordinació editorial',
+      pub_tab_medios: 'Intervencions',
       read_article: 'Llegir article',
+      listen_podcast: 'Escoltar podcast',
       see_publication: 'Veure publicació',
       show_more: 'Veure més articles',
       show_less: 'Veure menys',
@@ -1715,6 +1738,7 @@
       pub_desc_15: 'Tres anys després de la crisi energètica, el GNL nord-americà s\'ha convertit en eix estructural del nou ordre energètic europeu. L\'acord de Turnberry consolida una nova dependència, aquest cop de Washington en lloc de Moscou.',
       pub_desc_16: 'Amb el deteriorament de l\'entorn de seguretat europeu i els dubtes sobre el lideratge nord-americà, el Regne Unit reapareix com a actor clau malgrat el Brexit, reconstruint la seva relació amb Brussel·les des de la cooperació en defensa.',
       pub_desc_17: 'Anàlisi de l\'arquitectura diplomàtica de la UE, les contradiccions estructurals del Servei Europeu d\'Acció Exterior i els límits de la política exterior comunitària en un context de creixent competició geopolítica.',
+      pub_desc_medios_1: 'La intel·ligència artificial és cada cop més present en eines capaces d\'analitzar dades, fer recomanacions i fins i tot influir en decisions importants. En aquest episodi parlem dels drets que tenim davant les decisions automatitzades, de qui ha d\'assumir la responsabilitat quan alguna cosa falla i de com el Reglament europeu d\'intel·ligència artificial busca protegir la ciutadania.',
     },
     en: {
       nav_about: 'About',
@@ -1733,7 +1757,9 @@
       pub_title: 'Publications',
       pub_tab_articles: 'Articles',
       pub_tab_editorial: 'Editorial coordination',
+      pub_tab_medios: 'Appearances',
       read_article: 'Read article',
+      listen_podcast: 'Listen to podcast',
       see_publication: 'See publication',
       show_more: 'Show more articles',
       show_less: 'Show less',
@@ -1779,6 +1805,7 @@
       pub_desc_15: 'Three years after the energy crisis, US LNG has become a structural pillar of Europe\'s new energy order. The Turnberry agreement consolidates a new dependency, this time on Washington instead of Moscow.',
       pub_desc_16: 'With the deterioration of the European security environment and doubts about US leadership, the United Kingdom re-emerges as a key actor despite Brexit, rebuilding its relationship with Brussels through defence cooperation.',
       pub_desc_17: 'Analysis of the EU\'s diplomatic architecture, the structural contradictions of the European External Action Service and the limits of Community foreign policy in a context of growing geopolitical competition.',
+      pub_desc_medios_1: 'Artificial intelligence is increasingly present in tools capable of analysing data, making recommendations and even influencing important decisions. In this episode we discuss the rights we have in the face of automated decisions, who should bear responsibility when something goes wrong and how the European AI regulation seeks to protect citizens.',
     }
   };
 
